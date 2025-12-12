@@ -1,0 +1,139 @@
+<ion-app>
+  <!-- Side Menu -->
+  <ion-menu content-id="main-content" type="overlay" side="start" mode="md" swipe-gesture="false" auto-hide="true">
+    <ion-content class="side-menu" fullscreen="false" force-overscroll="false">
+      <div class="menu-hero">
+        <div class="menu-curve"></div>
+        <div class="menu-decor decor-a"></div>
+        <div class="menu-decor decor-b"></div>
+        <div class="menu-card">
+          <ion-avatar class="menu-card-avatar">
+            <img src="assets/avatar-placeholder.jpg" alt="Profile" />
+          </ion-avatar>
+          <div class="menu-card-info">
+            <div class="menu-name">Sachin<br />Gawade</div>
+            <div class="menu-code">SAPTA5978808</div>
+            <ion-button size="small" class="menu-view-btn">View Profile</ion-button>
+          </div>
+          <div class="menu-eye">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <!-- Ensure Dashboard is always visible directly below hero -->
+     <br /> <br />
+      <ion-list>
+        <ion-menu-toggle auto-hide="true">
+         <ion-item button routerLink="/tabs/tab1" routerLinkActive="menu-active" (click)="onMenuItemTap()" [routerLinkActiveOptions]="{ exact: true }" aria-label="Dashboard">
+        <ion-icon name="color-palette-outline" slot="start"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+         </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/profile" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="My Profile">
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-label>My Profile</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/search" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Search">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          <ion-label>Search</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/matches" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Matches">
+          <ion-icon name="copy-outline" slot="start"></ion-icon>
+          <ion-label>Matches</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/recently-login" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Recently login">
+          <ion-icon name="grid-outline" slot="start"></ion-icon>
+          <ion-label>Recently login</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/express-interest" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Express interest">
+          <ion-icon name="arrow-redo-outline" slot="start"></ion-icon>
+          <ion-label>Express interest</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/messages" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Message">
+          <ion-icon name="chatbox-outline" slot="start"></ion-icon>
+          <ion-label>Message</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/chat" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Chat">
+          <ion-icon name="chatbubble-ellipses-outline" slot="start"></ion-icon>
+          <ion-label>Chat</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/upload-document" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Upload Your Document">
+          <ion-icon name="document-outline" slot="start"></ion-icon>
+          <ion-label>Upload Your Document</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/upload-biodata" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Upload Your Biodata">
+          <ion-icon name="document-text-outline" slot="start"></ion-icon>
+          <ion-label>Upload Your Biodata</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/premium" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Premium Member">
+          <ion-icon name="card-outline" slot="start"></ion-icon>
+          <ion-label>Premium Member</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/activity" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="My Activity">
+          <ion-icon name="stats-chart-outline" slot="start"></ion-icon>
+          <ion-label>My Activity</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/cms" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="CMS">
+          <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+          <ion-label>CMS</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/success-stories" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Success Stories">
+          <ion-icon name="shield-checkmark-outline" slot="start"></ion-icon>
+          <ion-label>Success Stories</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/change-password" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Change Password">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-label>Change Password</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/contact-us" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Contact Us">
+          <ion-icon name="call-outline" slot="start"></ion-icon>
+          <ion-label>Contact Us</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+        <ion-item button routerLink="/logout" routerLinkActive="menu-active" (click)="onMenuItemTap()" aria-label="Logout">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+      <div class="menu-footer">
+        <ion-button expand="block" class="menu-plan-btn">Membership Plan</ion-button>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Main content -->
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+</ion-app>

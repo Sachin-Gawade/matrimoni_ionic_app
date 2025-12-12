@@ -1,0 +1,190 @@
+/*
+  Register page styles
+  - Curved red hero header
+  - Soft pill inputs and vibrant primary button
+  - Matches provided design while being responsive
+*/
+
+.toolbar-transparent {
+  /* Branded header background for Sign Up */
+  --background: #ff3b6b;
+  --color: #ffffff;
+}
+
+/* Header styles are now provided by AppHeaderComponent; no overrides here */
+
+/* Content background: subtle pattern; fallback to white if missing */
+.reg-content {
+  --background: #fff;
+  background-image: var(--pattern, url('/assets/register/pattern.png'));
+  background-repeat: repeat;
+  background-size: 300px 300px;
+}
+
+/* Centered container for desktop */
+.container {
+  max-width: 560px;
+  margin: 16px auto 0; /* balanced under unified header */
+}
+
+/* Tighter spacing on small screens */
+@media (max-width: 480px) {
+  .container { margin: 12px auto 0; }
+}
+
+.card {
+  margin: 16px 16px 24px; /* keep card separated from header */
+  padding: 26px 16px 28px; /* extra top padding for gender selector spacing */
+  background: rgba(255,255,255,0.96);
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  backdrop-filter: saturate(120%) blur(2px);
+}
+
+.label-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between; /* push gender toggle to the right */
+  margin-bottom: 8px;
+  margin-top: 12px; /* push gender selector down so it's fully visible */
+}
+.label-static {
+  font-weight: 800; /* stronger emphasis */
+  font-size: 18px;  /* slightly larger for visibility */
+  color: #000; /* ensure label is visible in light/dark */
+}
+
+.gender-toggle {
+  display: inline-flex;
+  background: #f3f3f3;
+  border-radius: 24px;
+  padding: 4px;
+  gap: 6px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 3; /* ensure visible above hero curve if overlapping */
+  margin-left: auto; /* align to right side */
+}
+.gender-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: #555;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.gender-btn.active {
+  background: #ffa600;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(255,166,0,0.35);
+}
+
+.input-pill {
+  --background: #ffffff;
+  --border-radius: 30px; /* fully rounded like the SEND OTP button */
+  --inner-border-radius: 30px;
+  --padding-start: 18px;
+  --padding-end: 14px;
+  margin: 12px 0;
+  /* Prefer Ionic border variables over external border to ensure rendering */
+  --border-color: rgba(0,0,0,0.16);
+  --border-style: solid;
+  --border-width: 2px;
+  --inner-border-width: 0;
+  --inner-padding-bottom: 0;
+  --inner-padding-top: 0;
+  border: none;
+  min-height: 56px; /* match pill button visual height */
+  /* Ensure text value and placeholder are visible */
+  --color: #1a1a1a; /* value color */
+  --placeholder-color: #8f8f8f; /* placeholder color */
+  --placeholder-opacity: 1; /* ensure placeholder not too faint */
+  --highlight-color-focused: #ff3b6b; /* caret/underline brand color */
+}
+/* Ensure the IonItem visual container is fully rounded and bordered */
+.input-pill::part(container) {
+  border-radius: 30px;
+  background: #ffffff;
+  border: none;
+}
+/* Red border highlight when invalid on submit */
+.input-pill.invalid {
+  --border-color: #d83a3a;
+  /* Keep single clean red border */
+}
+.input-pill ion-icon {
+  color: #666666; /* clear icon visibility in light mode */
+}
+.input-pill ion-input::part(native) {
+  font-size: 15px;
+  color: #1a1a1a; /* ensure input text is visible in light mode */
+}
+.input-pill ion-input {
+  /* Apply Ionic input CSS variables directly to component */
+  --color: #1a1a1a;
+  --placeholder-color: #8f8f8f;
+  --placeholder-opacity: 1;
+}
+.input-pill ion-input::part(label) {
+  color: #333333;
+}
+.input-pill ion-input::part(native) {
+  font-size: 15px;
+  color: #1a1a1a; /* ensure input text is visible in light mode */
+}
+/* Also ensure value text within item slot is dark */
+.input-pill::part(native) {
+  color: #1a1a1a;
+}
+
+/* Ensure floating label is readable */
+.input-pill ion-input::part(label) {
+  color: #333333;
+}
+/* ensure fully rounded rendering on iOS/Android/Web */
+.input-pill::part(native) {
+  border-radius: 30px;
+}
+
+/* Validation messages */
+.errors { display: none; }
+
+.actions {
+  margin-top: 10px;
+}
+.btn-primary {
+  --background: #ff3b6b;
+  --border-radius: 28px;
+  --box-shadow: 0 12px 24px rgba(255,59,107,0.35);
+  font-weight: 700;
+  letter-spacing: 1px;
+  --color: #ffffff; /* ensure button text is white */
+}
+
+.login-hint {
+  text-align: center;
+  margin-top: 12px;
+  color: #e54a5d;
+}
+.login-hint a {
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* Error alert brand styling to match login */
+:host ::ng-deep .error-alert {
+  --background: #ffffff;
+  --color: #1a1a1a;
+  --backdrop-opacity: 0.35;
+  --header-color: #d83a3a;
+  --message-color: #1a1a1a;
+  --button-color: #ff3b6b;
+}
+:host ::ng-deep .error-alert .alert-title { color: #d83a3a; }
+:host ::ng-deep .error-alert .alert-message { color: #1a1a1a; }
+:host ::ng-deep .error-alert .alert-button { color: #ff3b6b; font-weight: 700; }

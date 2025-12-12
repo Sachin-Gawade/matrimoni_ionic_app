@@ -1,0 +1,48 @@
+<!--
+  Login page layout (premium UI)
+  - Curved red hero with script title and domain
+  - Inputs with icons, clear validation, and action buttons
+-->
+<app-header pageTitle="Login" subtitle="saptaphere.com" [showBack]="true"></app-header>
+
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="container">
+    <!-- Reactive form wrapper required for formControlName -->
+    <form class="card" [formGroup]="form" novalidate>
+      <div class="login-title">Login</div>
+      <div class="login-subtitle">with mobile number/email id or password</div>
+
+      <ion-item class="input-pill" lines="none" [class.invalid]="submitted && form.controls.username.invalid">
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        <ion-input label="Enter mobile / Email" labelPlacement="floating" formControlName="username"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-pill" lines="none" [class.invalid]="submitted && form.controls.password.invalid">
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-input [type]="form.value.showPassword ? 'text' : 'password'" label="Password" labelPlacement="floating" formControlName="password"></ion-input>
+        <ion-button slot="end" fill="clear" (click)="togglePassword()">
+          <ion-icon [name]="form.value.showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+
+      <div class="link-row">
+        <button type="button" class="link" (click)="forgotPassword()">Forgot Password</button>
+      </div>
+
+      <div class="actions">
+        <ion-button expand="block" size="large" class="btn-primary" (click)="login()">Login</ion-button>
+      </div>
+
+      <div class="or-sep">or</div>
+
+      <div class="actions">
+        <ion-button expand="block" size="large" fill="outline" class="btn-outline" (click)="loginWithOtp()">Log In with OTP</ion-button>
+      </div>
+
+      <div class="register-hint">
+        Don't have an account? <a (click)="goToRegister()">SIGN UP FREE</a>
+      </div>
+    </form>
+  </div>
+</ion-content>

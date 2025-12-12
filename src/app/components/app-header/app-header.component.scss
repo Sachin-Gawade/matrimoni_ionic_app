@@ -1,0 +1,103 @@
+:host {
+  display: block;
+}
+
+.hero {
+  --background: var(--brand-gradient, linear-gradient(180deg, #ff3f6c 0%, #ff4f7a 100%));
+  position: relative;
+  height: 182px; /* match mobile look globally */
+  background: var(--brand-gradient, linear-gradient(180deg, #ff3f6c 0%, #ff4f7a 100%));
+  color: #fff;
+  box-shadow: none;
+  overflow: hidden; /* prevent decorative elements from creating bands */
+}
+
+.hero-toolbar {
+  --background: transparent;
+  --color: #ffffff;
+  --min-height: 52px; /* keep toolbar height consistent */
+  --padding-start: 8px;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 12px; /* match mobile spacing globally */
+  /* Tighten spacing between back arrow and title */
+  ion-back-button {
+    --padding-start: 4px;
+    --padding-end: 2px;
+    --icon-font-size: 20px;
+    margin-right: 2px;
+  }
+  ion-title {
+    font-weight: 700;
+    font-size: 15px; /* apply compact title size across web and mobile */
+    line-height: 1.1;
+    margin-left: 2px; /* keep single-space feel */
+  }
+}
+
+.hero-title {
+  margin: 22px 16px 6px 16px; /* match mobile spacing */
+  font-size: 24px; /* match mobile size */
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  margin: 0 16px 10px 16px; /* match mobile spacing */
+  font-size: 13px; /* match mobile size */
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-shape {
+  position: absolute;
+  left: -24px;
+  right: -24px;
+  bottom: -60px; /* push well below to avoid visible stripes */
+  height: 160px;
+  border-bottom-left-radius: 54px;
+  border-bottom-right-radius: 54px;
+  background: linear-gradient(180deg, rgba(255,59,107,0.0) 0%, rgba(255,111,143,0.45) 100%);
+  box-shadow: 0 10px 22px rgba(255,59,107,0.30);
+}
+
+.hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px; /* add a bit more breathing room */
+  z-index: 2;
+}
+
+.decor {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.decor-1 {
+  width: 44px; /* match mobile size */
+  height: 44px; /* match mobile size */
+  right: 16px;
+  bottom: 12px; /* keep within header bounds */
+  background: #ffeef3;
+}
+
+.decor-2 {
+  width: 30px; /* match mobile size */
+  height: 30px; /* match mobile size */
+  right: 72px;
+  bottom: 42px;
+  background: #ffb400;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero { color: #fff; }
+  .hero-subtitle { color: rgba(255, 255, 255, 0.9); }
+  .decor-1 { background: #ffe6ee; }
+}
+
+/* Mobile tweaks to avoid mixed/overlapping titles */
+/* Mobile adjustments to preserve browser look without overlap */
+@media (max-width: 480px) {
+  /* No differences: desktop and mobile are aligned */
+}

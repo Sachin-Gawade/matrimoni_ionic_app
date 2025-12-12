@@ -1,0 +1,81 @@
+<!--
+  Onboarding header
+  - Uses flexible layout so text fits on all device widths
+  - "Change Language" + current language kept to a single line with ellipsis
+  - Skip button stays visible on the right
+-->
+<ion-header class="onboarding-header" translucent="true">
+  <ion-toolbar>
+    <!-- Left: language label + link; single line with ellipsis to avoid overlap -->
+    <div class="header-left" slot="start" aria-label="Change Language">
+      <span class="header-title">Change Language</span>
+      <button class="lang-link" type="button" (click)="changeLanguage()">English</button>
+    </div>
+    <!-- Right: Next/Skip changes by slide; see component logic -->
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="onHeaderAction()">{{ headerActionLabel }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <!--
+    Swiper slides (web component)
+    - Pagination enabled and positioned above footer buttons
+    - No navigation arrows (we use Next FAB)
+  -->
+  <swiper-container
+    #swiperEl
+    class="onboarding-swiper"
+    pagination="true"  
+    navigation="false" 
+    loop="false"
+    (slidechange)="onSlideChange()"
+  >
+    <swiper-slide>
+      <div class="slide-bg" style="background-image: url('assets/onboarding/slide1.jpg');"></div>
+      <div class="overlay"></div>
+      <!--
+        Slide content block
+        - Pinned to bottom with safe-area awareness
+        - Ensures the trust line is always visible
+      -->
+      <div class="slide-content">
+        <h1 class="title">Welcome<br/>Saptaphere</h1>
+        <div class="actions">
+          <ion-button size="large" class="primary" (click)="register()">Register Free</ion-button>
+          <ion-button size="large" fill="outline" class="secondary" (click)="login()">Log In Now</ion-button>
+        </div>
+        <div class="trust" aria-live="polite">100% Trusted & Secure App</div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="slide-bg" style="background-image: url('assets/onboarding/slide2.jpg');"></div>
+      <div class="overlay"></div>
+      <div class="slide-content">
+        <h1 class="title">Indian no.1<br/>Matrimonial Service</h1>
+        <div class="actions">
+          <ion-button size="large" class="primary" (click)="register()">Register Free</ion-button>
+          <ion-button size="large" fill="outline" class="secondary" (click)="login()">Log In Now</ion-button>
+        </div>
+        <div class="trust">100% Trusted & Secure App</div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="slide-bg" style="background-image: url('assets/onboarding/slide3.jpg');"></div>
+      <div class="overlay"></div>
+      <div class="slide-content">
+        <h1 class="title">Find your<br/>Perfect Match</h1>
+        <div class="actions">
+          <ion-button size="large" class="primary" (click)="register()">Register Free</ion-button>
+          <ion-button size="large" fill="outline" class="secondary" (click)="login()">Log In Now</ion-button>
+        </div>
+        <div class="trust">100% Trusted & Secure App</div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- Floating blue FAB removed per design request -->
+</ion-content>

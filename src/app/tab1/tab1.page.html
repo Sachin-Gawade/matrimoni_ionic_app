@@ -1,0 +1,98 @@
+<ion-header class="dash-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" aria-label="Search">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" class="icon-badge" aria-label="Notifications">
+        <ion-icon name="notifications-outline"></ion-icon>
+        <ion-badge color="danger" class="badge">20</ion-badge>
+      </ion-button>
+      <ion-button fill="clear" aria-label="Offers">
+        <ion-icon name="gift-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="pattern"></div>
+  <div class="decor decor-a"></div>
+  <div class="decor decor-b"></div>
+</ion-header>
+
+<ion-content class="dash-content">
+  <!-- Profile card -->
+  <div class="profile-card">
+    <div class="avatar">
+      <img src="assets/avatar-placeholder.jpg" alt="avatar" />
+    </div>
+    <div class="info">
+      <div class="name">Sachin Gawade</div>
+      <div class="code">SAPTA5978808</div>
+      <ion-button size="small" class="view-btn">View Profile</ion-button>
+    </div>
+  </div>
+
+  <!-- Quick actions row -->
+  <div class="quick-actions">
+    <div class="qa">
+      <div class="circle"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></div>
+      <div class="label">Chat</div>
+    </div>
+    <div class="qa">
+      <div class="circle"><ion-icon name="star-outline"></ion-icon></div>
+      <div class="label">Shortlisted</div>
+    </div>
+    <div class="qa">
+      <div class="circle"><ion-icon name="heart-outline"></ion-icon></div>
+      <div class="label">Liked</div>
+    </div>
+    <div class="qa">
+      <div class="circle"><ion-icon name="checkmark-outline"></ion-icon></div>
+      <div class="label">Interest</div>
+    </div>
+  </div>
+
+  <!-- Sections -->
+  <div class="card card-red">
+    <div class="icon"><ion-icon name="heart"></ion-icon></div>
+    <div class="text">
+      <div class="title">Matches</div>
+      <div class="subtitle">You have the best matches here!</div>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <div class="icon"><ion-icon name="eye-outline"></ion-icon></div>
+    <div class="text">
+      <div class="title">Viewed Profile</div>
+      <div class="subtitle">I Viewed Profile & Who viewed profile</div>
+    </div>
+  </div>
+
+  <div class="card card-purple">
+    <div class="icon"><ion-icon name="person-circle-outline"></ion-icon></div>
+    <div class="text">
+      <div class="title">Viewed Contact</div>
+      <div class="subtitle">I Viewed Contact & Who viewed Contact</div>
+    </div>
+  </div>
+
+  <div class="card card-blue">
+    <div class="icon"><ion-icon name="log-in-outline"></ion-icon></div>
+    <div class="text">
+      <div class="title">Recently login</div>
+      <div class="subtitle">Recently Login profile!</div>
+    </div>
+  </div>
+
+  <div class="card card-red-light">
+    <div class="icon"><ion-icon name="ban-outline"></ion-icon></div>
+    <div class="text">
+      <div class="title">Blocked</div>
+      <div class="subtitle">You Have blocked them right away!</div>
+    </div>
+  </div>
+</ion-content>

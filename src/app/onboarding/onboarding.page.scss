@@ -1,0 +1,149 @@
+/*
+  Header styles
+  - Keep text readable on all widths
+  - Ensure language text truncates with ellipsis (no overlap with Skip)
+*/
+.onboarding-header {
+  --background: transparent; /* translucent toolbar over image */
+  --color: #fff;
+
+  ion-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: calc(100% - 96px); /* leave room for Skip button */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-inline-start: 8px;
+  }
+  .header-title {
+    font-size: clamp(14px, 3.8vw, 18px);
+  }
+  .lang-link {
+    color: #00d0ff;
+    text-decoration: none;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: clamp(14px, 3.8vw, 18px);
+  }
+
+  ion-button {
+    color: #fff; /* ensure Skip is visible */
+  }
+}
+
+.onboarding-swiper,
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+  Swiper slide container
+  - Use flex to push content to the bottom
+*/
+swiper-slide {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dim overlay to improve text legibility over photos */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.80) 100%);
+}
+
+/*
+  Content at the bottom of the slide
+  - Safe-area aware padding
+  - Enough bottom space so trust line and dots are always visible
+*/
+.slide-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px max(90px, env(safe-area-inset-bottom) + 72px);
+  margin-top: auto; /* push to bottom */
+  text-align: center;
+  color: #fff;
+
+  .title {
+    font-family: 'Pacifico', cursive, system-ui;
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 14px; /* leave room for dots below */
+
+    ion-button.primary {
+      --background: #ff3b6b;
+      --border-radius: 28px;
+      --padding-top: 14px;
+      --padding-bottom: 14px;
+      font-weight: 700;
+    }
+
+    ion-button.secondary {
+      --border-radius: 28px;
+      --border-color: rgba(255,255,255,0.7);
+      --color: #fff;
+      --padding-top: 14px;
+      --padding-bottom: 14px;
+      backdrop-filter: blur(2px);
+    }
+  }
+
+  /* Trust line - ensure always visible by extra bottom padding in container */
+  .trust {
+    font-size: 12px;
+    opacity: 0.9;
+    letter-spacing: 0.3px;
+  }
+}
+
+/*
+  Swiper pagination dots
+  - Positioned above footer buttons so they don't overflow the safe area
+*/
+:host ::ng-deep .swiper-pagination {
+  bottom: 72px; /* place dots above trust text/buttons */
+}
+
+:host ::ng-deep .swiper-pagination-bullet {
+  background: rgba(255,255,255,0.6);
+  opacity: 1;
+}
+:host ::ng-deep .swiper-pagination-bullet-active {
+  background: #ffb642;
+}
+
+/*
+  Content padding to avoid overlap with the native notch / safe area
+*/
+ion-content {
+  --padding-bottom: env(safe-area-inset-bottom);
+}

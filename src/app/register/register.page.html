@@ -1,0 +1,85 @@
+<!--
+  Register page layout
+  - Curved red header with title and decorative avatars (simplified placeholders)
+  - Gender toggle, inputs, and Send OTP button
+  - Comments explain structure for future maintenance
+-->
+<!--
+  Header with curved hero
+  - Looks premium across mobile and web
+  - Uses layered gradient + soft shadow
+-->
+<app-header pageTitle="Sign Up" subtitle="saptaphere.com" [showBack]="true"></app-header>
+
+<ion-content class="reg-content">
+  <!--
+    Centered container for large screens
+    - Keeps a compact readable width on desktop while staying edge-to-edge on phones
+  -->
+  <div class="container">
+    <!--
+      Wrap inputs in a reactive form group so formControlName works.
+    -->
+    <form class="card" [formGroup]="form" novalidate>
+    <!-- Gender toggle -->
+    <!-- Gender selector: prominent and accessible -->
+    <div class="field label-inline">
+      <label class="label-static">I am</label>
+      <div class="gender-toggle" role="tablist" aria-label="Select Gender">
+        <button type="button" class="gender-btn" [class.active]="form.value.gender==='male'" (click)="selectGender('male')">
+          <ion-icon name="male-outline"></ion-icon>
+          <span>Male</span>
+        </button>
+        <button type="button" class="gender-btn" [class.active]="form.value.gender==='female'" (click)="selectGender('female')">
+          <ion-icon name="female-outline"></ion-icon>
+          <span>Female</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Name fields -->
+    <ion-item class="input-pill" [class.invalid]="submitted && form.controls.firstName.invalid" lines="none">
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-input label="First Name*" labelPlacement="floating" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item class="input-pill" [class.invalid]="submitted && form.controls.middleName.invalid" lines="none">
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-input label="Middle Name" labelPlacement="floating" formControlName="middleName"></ion-input>
+    </ion-item>
+    <ion-item class="input-pill" [class.invalid]="submitted && form.controls.lastName.invalid" lines="none">
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-input label="Last Name*" labelPlacement="floating" formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <!-- Contact fields -->
+    <ion-item class="input-pill" [class.invalid]="submitted && form.controls.email.invalid" lines="none">
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-input label="Email*" labelPlacement="floating" type="email" inputmode="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item class="input-pill" [class.invalid]="submitted && !form.controls.mobile.valid" lines="none">
+      <ion-icon slot="start" name="call-outline"></ion-icon>
+      <ion-input label="Mobile Number*" labelPlacement="floating" type="tel" inputmode="numeric" maxlength="10" formControlName="mobile"></ion-input>
+    </ion-item>
+
+    <!-- Password with visibility toggle -->
+    <ion-item class="input-pill" [class.invalid]="submitted && form.controls.password.invalid" lines="none">
+      <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      <ion-input [type]="showPassword ? 'text' : 'password'" label="Password*" labelPlacement="floating" formControlName="password"></ion-input>
+      <ion-button slot="end" fill="clear" (click)="togglePassword()">
+        <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <!-- Hide error messages per request; rely on red borders -->
+
+    <!-- Submit -->
+    <div class="actions">
+      <ion-button expand="block" size="large" class="btn-primary" (click)="submit()">SEND OTP</ion-button>
+    </div>
+
+    <div class="login-hint">
+      Already have an account? <a (click)="goToLogin()">LOGIN</a>
+    </div>
+    </form>
+  </div>
+</ion-content>

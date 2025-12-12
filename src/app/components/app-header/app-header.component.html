@@ -1,0 +1,19 @@
+<ion-header class="hero">
+  <ion-toolbar class="hero-toolbar">
+    <ion-buttons slot="start" *ngIf="showBack">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+  </ion-toolbar>
+
+  <div class="hero-shape"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">{{ welcomeTitle }}</h1>
+    <div class="hero-subtitle">{{ subtitle }}</div>
+  </div> 
+
+  <!-- Decorative circles -->
+  <div class="decor decor-1"></div>
+  <div class="decor decor-2"></div>
+</ion-header>

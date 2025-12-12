@@ -1,0 +1,159 @@
+/* Side Menu styling to match mobile design */
+.side-menu { --background: #ffffff; color: #1a1a1a; --padding-top: 0; }
+/* Make menu scrollable but hide native scrollbar */
+.side-menu::part(scroll) { overflow: auto; scrollbar-width: none; }
+.side-menu::part(scroll)::-webkit-scrollbar { width: 0; height: 0; }
+.side-menu ion-list { background: transparent; }
+.side-menu ion-item { --background: transparent; --color: #1a1a1a; --padding-start: 14px; --inner-padding-end: 12px; --border-color: rgba(0,0,0,0.08); }
+.side-menu ion-item ion-icon { color: #1a1a1a; }
+.side-menu ion-item ion-label { color: #1a1a1a !important; font-weight: 600; }
+.side-menu ion-list { margin-top: 8px; }
+
+/* Touch feedback: subtle pressed tint + ripple color */
+.side-menu ion-item {
+	--ripple-color: rgba(255, 59, 107, 0.25);
+}
+.side-menu ion-item:active {
+	--background: rgba(0, 0, 0, 0.06);
+}
+
+/* Active route highlight inside menu */
+.side-menu .menu-active {
+	--background: rgba(0,0,0,0.04);
+	border-left: 3px solid #ff3b6b;
+	margin-left: 0;
+}
+.side-menu .menu-active ion-icon,
+.side-menu .menu-active ion-label {
+	color: #ff3b6b !important;
+}
+
+/* Ensure IonMenu looks identical on web and mobile */
+ion-menu {
+	--width: 320px;
+	--max-width: 85vw;
+	--backdrop-opacity: 0.32;
+}
+
+/* Desktop-only: drop list below hero curve so 'Dashboard' is visible */
+@media (min-width: 768px) {
+	.side-menu ion-list { margin-top: 24px; }
+}
+
+.menu-hero { position: relative; padding-top: 8px; padding-bottom: 18px; }
+.menu-curve { position: absolute; left: 0; right: 0; top: 0; height: 220px; background: linear-gradient(180deg,#ff3b6b 0%, #ff215b 100%); border-bottom-left-radius: 42px; z-index: 1; }
+.menu-decor { position: absolute; width: 20px; height: 20px; border-radius: 50%; opacity: 0.9; z-index: 3; }
+.menu-decor.decor-a { right: 18px; top: 28px; background: #ffb400; }
+.menu-decor.decor-b { display: none; }
+
+.menu-card { position: relative; margin: 24px auto 0; max-width: 320px; padding: 16px; display: grid; grid-template-columns: 72px 1fr 56px; gap: 14px; align-items: center; background: rgba(255,255,255,0.12); border-radius: 16px; backdrop-filter: blur(4px); z-index: 2; }
+.menu-card-avatar { width: 72px; height: 72px; border-radius: 14px; overflow: hidden; border: 3px solid rgba(255,255,255,0.8); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+.menu-card-info .menu-name { font-weight: 800; font-size: 18px; color: #fff; }
+.menu-card-info .menu-code { font-size: 12px; opacity: 0.9; margin-top: 4px; }
+.menu-view-btn { --background: linear-gradient(180deg,#ffa600 0%, #ff9300 100%); --border-radius: 18px; --box-shadow: 0 8px 18px rgba(255,166,0,0.35); margin-top: 10px; font-weight: 700; }
+.menu-eye { width: 56px; height: 56px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 12px 24px rgba(0,0,0,0.20); color: #ff3b6b; z-index: 2; }
+.menu-eye ion-icon { font-size: 24px; }
+
+.menu-footer { padding: 16px; }
+.menu-plan-btn { --background: #ff3b6b; --border-radius: 12px; --box-shadow: 0 12px 24px rgba(255,59,107,0.30); font-weight: 800; letter-spacing: 0.3px; color: #fff; }
+
+/* Neutralize platform safe-area padding inside the menu */
+ion-menu .ion-page, ion-menu ion-content {
+	padding-top: 0 !important;
+}
+
+/* Stabilize hero and list spacing on small screens */
+.side-menu .menu-hero {
+	min-height: 180px;
+}
+.side-menu ion-list {
+	margin-top: 8px;
+}
+
+/* Fixed Dashboard item spacing under hero */
+.menu-dashboard { --background: transparent; --color: #1a1a1a; margin: 8px 0 4px; }
+.menu-dashboard ion-icon { color: #1a1a1a; }
+/* Global styling for Ionic Alerts since they render outside page component tree */
+.error-alert {
+	--background: #ffffff;
+	--color: #1a1a1a;
+	--backdrop-opacity: 0.35;
+	--header-color: #d83a3a;
+	--message-color: #1a1a1a;
+	--button-color: #ff3b6b;
+}
+.error-alert .alert-title { color: #d83a3a; }
+.error-alert .alert-message { color: #1a1a1a; }
+.error-alert .alert-button { color: #ff3b6b; font-weight: 700; }
+.error-alert-button { color: #ff3b6b !important; font-weight: 700 !important; }
+
+/* Dark mode variant for error alert */
+@media (prefers-color-scheme: dark) {
+	.error-alert {
+		--background: #1e1e1e;
+		--color: #ffffff;
+		--message-color: #ffffff;
+		--header-color: #ff7b88; /* softer red on dark */
+		--button-color: #ff6b8a; /* brand tint for dark */
+	}
+	.error-alert .alert-title { color: #ff7b88; }
+	.error-alert .alert-message { color: #ffffff; }
+	.error-alert .alert-button { color: #ff6b8a; }
+}
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Dark mode readability fixes for inputs and placeholders */
+@media (prefers-color-scheme: dark) {
+	ion-item, ion-input, ion-textarea {
+		color: #ffffff;
+		--color: #ffffff;
+		--placeholder-color: rgba(255,255,255,0.7);
+		--highlight-color-focused: #ffffff;
+	}
+
+	/* Ensure icons inside inputs remain visible */
+	ion-icon {
+		color: #ffffff;
+	}
+
+	/* Buttons: keep text readable */
+	ion-button {
+		color: #ffffff;
+	}
+}
