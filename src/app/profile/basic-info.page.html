@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Basic Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-shell--narrow">
+    <ion-list class="form-list">
+      <ion-item lines="none" class="pill-item">
+      <ion-input fill="solid" type="date" [(ngModel)]="dob" placeholder="1993-05-23"></ion-input>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select fill="solid" interface="popover" [(ngModel)]="maritalStatus" placeholder="Unmarried">
+        <ion-select-option>Unmarried</ion-select-option>
+        <ion-select-option>Married</ion-select-option>
+        <ion-select-option>Divorced</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select fill="solid" interface="popover" [(ngModel)]="height" placeholder="5 feet 8 inch">
+        <ion-select-option>5 feet 8 inch</ion-select-option>
+        <ion-select-option>5 feet 6 inch</ion-select-option>
+        <ion-select-option>6 feet 0 inch</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select fill="solid" interface="popover" [(ngModel)]="weight" placeholder="Select Weight">
+        <ion-select-option>60 kg</ion-select-option>
+        <ion-select-option>65 kg</ion-select-option>
+        <ion-select-option>70 kg</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select fill="solid" interface="popover" [(ngModel)]="bloodGroup" placeholder="B+">
+        <ion-select-option>A+</ion-select-option>
+        <ion-select-option>B+</ion-select-option>
+        <ion-select-option>O+</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-input fill="solid" type="time" [(ngModel)]="birthTime" placeholder="10:25 PM"></ion-input>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select fill="solid" interface="popover" [(ngModel)]="zodiac" placeholder="Virgo">
+        <ion-select-option>Virgo</ion-select-option>
+        <ion-select-option>Leo</ion-select-option>
+        <ion-select-option>Gemini</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select fill="solid" interface="popover" [(ngModel)]="profileCreatedBy" placeholder="Parents">
+        <ion-select-option>Parents</ion-select-option>
+        <ion-select-option>Self</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none" class="form-item">
+      <ion-input fill="solid" type="tel" [(ngModel)]="mobile" placeholder="7020498612"></ion-input>
+    </ion-item>
+    </ion-list>
+
+    <div class="submit">
+      <ion-button expand="block" class="btn-pill-primary" (click)="submit()">Submit</ion-button>
+    </div>
+  </div>
+</ion-content>

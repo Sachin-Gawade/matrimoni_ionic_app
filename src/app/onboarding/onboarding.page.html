@@ -79,3 +79,23 @@
 
   <!-- Floating blue FAB removed per design request -->
 </ion-content>
+
+<!-- Dev-only helper: configure API base URL at runtime so Android builds
+     don't require rebuilding when the backend IP changes. Remove or hide
+     this footer in production. -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-input
+        label="API Base URL"
+        labelPlacement="stacked"
+        [(ngModel)]="apiBaseUrlInput"
+        placeholder="http://10.246.231.48:8080/api">
+      </ion-input>
+      <ion-button slot="end" size="small" (click)="saveApiBaseUrl()">
+        Save
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+  
+</ion-footer>

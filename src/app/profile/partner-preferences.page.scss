@@ -1,0 +1,59 @@
+.age-block {
+	padding: 16px 20px 8px;
+}
+
+.age-label {
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.age-range {
+  --bar-background: #e2f0ff;
+  --bar-background-active: #ff215b;
+  --knob-background: #ff215b;
+  --knob-size: 22px;
+}
+
+.age-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding: 0 4px;
+  font-size: 12px;
+  color: #8b8f99;
+}
+
+.submit { padding: 16px; }
+
+/* List layout: small top spacing */
+.form-list { background: transparent; padding-top: 8px; }
+
+/* Page background motif similar to design */
+ion-content {
+	--background: #ffffff;
+	background:
+		url('/assets/patterns/matrimoni-bg.svg') 0 0 / 160px 160px repeat,
+		radial-gradient(circle at 92% 60%, rgba(255,33,91,.22) 0 22px, transparent 24px),
+		radial-gradient(circle at 10% 86%, rgba(255,33,91,.22) 0 16px, transparent 18px),
+		#ffffff;
+}
+
+/* Toolbar title stronger */
+ion-header ion-title { font-weight: 800; font-size: 24px; letter-spacing: .2px; }
+
+/* Ensure ion-select dropdown options are visible on white background */
+:host ::ng-deep ion-select-popover {
+	/* Give the dropdown panel a light grey card-style background */
+	--background: #f7f7f7;
+}
+
+:host ::ng-deep ion-select-popover ion-item {
+	/* Ensure each option has the same tinted background instead of pure white */
+	--background: #f7f7f7;
+}
+
+:host ::ng-deep ion-select-popover ion-item,
+:host ::ng-deep ion-select-popover ion-item * {
+	color: #222 !important;
+}

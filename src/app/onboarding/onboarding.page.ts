@@ -1,24 +1,34 @@
-import { Component, ElementRef, ViewChild, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-onboarding',
   standalone: true,
-  imports: [CommonModule, IonicModule],
+  imports: [CommonModule, IonicModule, FormsModule],
   templateUrl: './onboarding.page.html',
   styleUrls: ['./onboarding.page.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class OnboardingPage implements AfterViewInit {
+export class OnboardingPage implements AfterViewInit, OnInit {
   @ViewChild('swiperEl', { static: false }) swiperEl?: ElementRef;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private apiService: ApiService) {}
 
   // Track if the current slide is the last one to toggle header action.
   isLastSlide = false;
   totalSlides = 0;
+
+  // Dev helper: runtime API base URL override so Android builds
+  // don't need rebuilding when backend IP changes.
+  apiBaseUrlInput = '';
+
+  ngOnInit(): void {
+    this.apiBaseUrlInput = this.apiService.getBaseUrl();
+  }
 
   // After the view initializes, read Swiper instance to set initial state.
   ngAfterViewInit(): void {
@@ -82,5 +92,13 @@ export class OnboardingPage implements AfterViewInit {
   // Compute label for header action button
   get headerActionLabel(): string {
     return this.isLastSlide ? 'Skip →' : 'Next →';
+  }
+
+  async saveApiBaseUrl() {
+    const value = (this.apiBaseUrlInput || '').trim();
+    if (!value) {
+      return;
+    }
+    await this.apiService.updateBaseUrl(value);
   }
 }

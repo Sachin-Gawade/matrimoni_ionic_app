@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Religious Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <ion-item>
+      <ion-select label="Religion" labelPlacement="floating" [(ngModel)]="religion">
+        <ion-select-option>Hindu</ion-select-option>
+        <ion-select-option>Muslim</ion-select-option>
+        <ion-select-option>Christian</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Caste" labelPlacement="floating" [(ngModel)]="caste">
+        <ion-select-option>Dhangar</ion-select-option>
+        <ion-select-option>Brahmin</ion-select-option>
+        <ion-select-option>Maratha</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Sub Caste" labelPlacement="floating" [(ngModel)]="subCaste">
+        <ion-select-option>Shegar</ion-select-option>
+        <ion-select-option>Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Manglik" labelPlacement="floating" [(ngModel)]="manglik">
+        <ion-select-option>Accepted</ion-select-option>
+        <ion-select-option>Not Accepted</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Mother Tongue" labelPlacement="floating" [(ngModel)]="motherTongue">
+        <ion-select-option>Marathi</ion-select-option>
+        <ion-select-option>Hindi</ion-select-option>
+        <ion-select-option>English</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <div class="submit">
+    <ion-button expand="block" (click)="submit()">Submit</ion-button>
+  </div>
+</ion-content>
