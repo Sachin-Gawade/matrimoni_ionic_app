@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Partner Preferences</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-shell--narrow">
+    <div class="age-block">
+    <div class="age-label">Age</div>
+
+    <ion-range
+      dualKnobs="true"
+      [min]="18"
+      [max]="60"
+      [step]="1"
+      [(ngModel)]="ageRange"
+      class="age-range"
+    ></ion-range>
+
+    <div class="age-meta">
+      <span>{{ fromAgeLabel }}</span>
+      <span>{{ toAgeLabel }}</span>
+    </div>
+    </div>
+
+    <ion-list class="form-list">
+      <ion-item lines="none" class="pill-item">
+      <ion-select
+        fill="solid"
+        interface="popover"
+        [(ngModel)]="country"
+        placeholder="India"
+      >
+        <ion-select-option *ngFor="let c of countries" [value]="c">{{ c }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select
+        fill="solid"
+        interface="popover"
+        [(ngModel)]="state"
+        placeholder="Maharashtra"
+      >
+        <ion-select-option *ngFor="let s of states" [value]="s">{{ s }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select
+        fill="solid"
+        interface="popover"
+        [(ngModel)]="city"
+        placeholder="Select City"
+      >
+        <ion-select-option *ngFor="let cityOption of cities" [value]="cityOption">
+          {{ cityOption }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select
+        fill="solid"
+        interface="popover"
+        [(ngModel)]="maritalStatus"
+        placeholder="Unmarried"
+      >
+        <ion-select-option *ngFor="let status of maritalStatuses" [value]="status">
+          {{ status }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select
+        fill="solid"
+        interface="popover"
+        [(ngModel)]="religion"
+        placeholder="Hindu"
+      >
+        <ion-select-option *ngFor="let r of religions" [value]="r">{{ r }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select
+        fill="solid"
+        interface="popover"
+        [(ngModel)]="caste"
+        placeholder="Dhangar"
+      >
+        <ion-select-option *ngFor="let c of castes" [value]="c">{{ c }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item lines="none" class="pill-item">
+      <ion-select
+        fill="solid"
+        multiple="true"
+        interface="popover"
+        [(ngModel)]="educationSelection"
+        placeholder="Diploma, Graduate, Masters"
+      >
+        <ion-select-option *ngFor="let edu of educations" [value]="edu">{{ edu }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    </ion-list>
+
+    <div class="submit">
+      <ion-button expand="block" class="btn-pill-primary" (click)="submit()">Submit</ion-button>
+    </div>
+  </div>
+</ion-content>

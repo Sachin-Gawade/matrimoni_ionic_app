@@ -1,0 +1,45 @@
+.submit { padding: 16px 0 24px; }
+
+/* List layout: small top spacing */
+.form-list { background: transparent; padding-top: 8px; }
+
+/* Strong override so Basic Info inputs (incl. mobile) use dark text/placeholder */
+:host ::ng-deep ion-item.pill-item ion-input {
+	--color: #1a1a1a;
+	--placeholder-color: #2c2c2c;
+	--placeholder-opacity: 1;
+}
+
+/* Target the native input element inside ion-input explicitly */
+:host ::ng-deep ion-item.pill-item ion-input input {
+	color: #1a1a1a !important;
+	background: transparent !important;
+}
+
+:host ::ng-deep ion-item.pill-item ion-input input::placeholder {
+	color: #2c2c2c !important;
+}
+
+/* Fallback "normal" CSS: make all text inside Basic Info pill items dark */
+ion-item.pill-item,
+ion-item.pill-item * {
+	color: #1a1a1a !important;
+}
+
+/* Ensure mobile number and other inputs show dark text */
+ion-item.pill-item ion-input::part(native) {
+	color: #1a1a1a;
+}
+
+/* Page background motif similar to design */
+ion-content {
+	--background: #ffffff;
+	background:
+		url('/assets/patterns/matrimoni-bg.svg') 0 0 / 160px 160px repeat,
+		radial-gradient(circle at 92% 60%, rgba(255,33,91,.22) 0 22px, transparent 24px),
+		radial-gradient(circle at 10% 86%, rgba(255,33,91,.22) 0 16px, transparent 18px),
+		#ffffff;
+}
+
+/* Toolbar title stronger */
+ion-header ion-title { font-weight: 800; font-size: 24px; letter-spacing: .2px; }

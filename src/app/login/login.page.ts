@@ -75,9 +75,15 @@ export class LoginPage {
         });
       },
       error: (err) => {
-        console.error('Login API error', err?.error?.message);
+      console.error('Login API error', err?.error?.message);
+
+       if( err.status===0){
+          this.presentErrorAlert('Unable to connect to server. Please check your internet connection.');
+       }
+       else{
         const msg: string = err?.error?.message ?? 'Login failed';
         this.presentErrorAlert(msg);
+       }
       }
     });
   }

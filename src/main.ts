@@ -37,7 +37,9 @@ import {
   cardOutline,
   statsChartOutline,
   helpCircleOutline,
-  shieldCheckmarkOutline
+  shieldCheckmarkOutline,
+  addOutline,
+  createOutline
 } from 'ionicons/icons';
 import { AppComponent } from './app/app.component';
 import { isDevMode } from '@angular/core';
@@ -81,6 +83,8 @@ addIcons({
   'stats-chart-outline': statsChartOutline,
   'help-circle-outline': helpCircleOutline,
   'shield-checkmark-outline': shieldCheckmarkOutline,
+  'add-outline': addOutline,
+  'create-outline': createOutline,
 });
 
 bootstrapApplication(AppComponent, {

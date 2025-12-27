@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // Central API base URL for dev (LAN IP for device access)
-  apiBaseUrl: 'http://10.206.144.48:8080/api',
+  apiBaseUrl: 'http://10.246.231.48:8080/api',
 };
 
 /*

@@ -1,3 +1,5 @@
+@use "theme/utilities";
+
 /* Side Menu styling to match mobile design */
 .side-menu { --background: #ffffff; color: #1a1a1a; --padding-top: 0; }
 /* Make menu scrollable but hide native scrollbar */
@@ -100,6 +102,30 @@ ion-menu .ion-page, ion-menu ion-content {
 	.error-alert .alert-message { color: #ffffff; }
 	.error-alert .alert-button { color: #ff6b8a; }
 }
+
+/* Global styling for ion-select popovers (rendered in overlay outside pages) */
+ion-select-popover {
+	--background: #f7f7f7; /* light card background instead of pure white */
+}
+
+ion-select-popover ion-item {
+	--background: #f7f7f7;
+}
+
+ion-select-popover ion-item,
+ion-select-popover ion-item * {
+	color: #222 !important; /* ensure option labels are visible */
+}
+
+/* Hover and selected state for options inside the popover */
+ion-select-popover ion-item::part(native) {
+	transition: background-color 0.15s ease;
+}
+
+ion-select-popover ion-item:hover::part(native),
+ion-select-popover ion-item[aria-selected="true"]::part(native) {
+	background-color: #ffe6ee; /* light brand-tinted highlight */
+}
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -134,9 +160,8 @@ ion-menu .ion-page, ion-menu ion-content {
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+/* Use app-defined light design (no OS dark palette) */
+/* Dark palettes disabled to prevent system override */
 
 /* Dark mode readability fixes for inputs and placeholders */
 @media (prefers-color-scheme: dark) {
@@ -155,5 +180,34 @@ ion-menu .ion-page, ion-menu ion-content {
 	/* Buttons: keep text readable */
 	ion-button {
 		color: #ffffff;
+	}
+
+	/* Keep bottom tab bar readable in dark mode */
+	ion-tab-bar {
+		--background: #ffffff;
+		--color: #1a1a1a;
+		--color-selected: var(--ion-color-primary);
+	}
+
+	ion-tab-bar ion-icon,
+	ion-tab-bar ion-label {
+		color: #1a1a1a;
+	}
+
+	ion-tab-bar ion-tab-button.tab-selected ion-icon,
+	ion-tab-bar ion-tab-button.tab-selected ion-label {
+		color: var(--ion-color-primary);
+	}
+}
+
+/* Always keep pill inputs in light style, even in OS dark mode */
+@media (prefers-color-scheme: dark) {
+	.pill-item,
+	.pill-item ion-select,
+	.pill-item ion-input {
+		color: #1a1a1a;
+		--color: #1a1a1a;
+		--placeholder-color: #8f8f8f;
+		--highlight-color-focused: #ff3b6b;
 	}
 }

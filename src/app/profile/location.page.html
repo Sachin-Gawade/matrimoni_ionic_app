@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Location Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <ion-item>
+      <ion-input label="City" labelPlacement="floating" [(ngModel)]="city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="State" labelPlacement="floating" [(ngModel)]="state"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="submit">
+    <ion-button expand="block" (click)="submit()">Submit</ion-button>
+  </div>
+</ion-content>

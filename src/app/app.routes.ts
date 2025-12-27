@@ -25,6 +25,11 @@ export const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
   },
   {
+    path: 'profile',
+    redirectTo: 'tabs/profile',
+    pathMatch: 'full',
+  },
+  {
     path: 'logout',
     loadComponent: () => import('./logout/logout.page').then(m => m.LogoutPage),
   },

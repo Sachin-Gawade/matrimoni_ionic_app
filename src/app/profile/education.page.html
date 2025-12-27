@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Education Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <ion-item>
+      <ion-select label="Highest Education" labelPlacement="floating" [(ngModel)]="highestEducation">
+        <ion-select-option>B.Tech</ion-select-option>
+        <ion-select-option>M.Tech</ion-select-option>
+        <ion-select-option>MBA</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Occupation" labelPlacement="floating" [(ngModel)]="occupation"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="submit">
+    <ion-button expand="block" (click)="submit()">Submit</ion-button>
+  </div>
+</ion-content>

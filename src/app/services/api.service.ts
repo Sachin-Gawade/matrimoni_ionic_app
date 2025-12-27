@@ -29,10 +29,36 @@ export type LoginResponse = RegisterResponse;
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  // Use environment-configured base URL
+  // Base URL starts from environment but can be overridden at runtime via Preferences
   private baseUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.initBaseUrlOverride();
+  }
+
+  private async initBaseUrlOverride(): Promise<void> {
+    try {
+      const { value } = await Preferences.get({ key: 'api_base_url' });
+      if (value && value.length > 0) {
+        this.baseUrl = value;
+      }
+    } catch {
+      // Ignore errors and keep environment default
+    }
+  }
+
+  getBaseUrl(): string {
+    return this.baseUrl;
+  }
+
+  async updateBaseUrl(url: string): Promise<void> {
+    this.baseUrl = url;
+    try {
+      await Preferences.set({ key: 'api_base_url', value: url });
+    } catch {
+      // Ignore persistence errors; in-memory value still used
+    }
+  }
 
   // Users
   register(payload: RegisterPayload): Observable<RegisterResponse> {

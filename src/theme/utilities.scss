@@ -1,0 +1,91 @@
+/*
+ * Reusable layout and UI utilities
+ * Use these classes directly in templates to avoid repeating SCSS.
+ */
+
+/* Centered page column – good default for most detail views */
+.page-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Narrower column for forms or single-column layouts */
+.page-shell--narrow {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Soft elevated card surface */
+.card-soft {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Section header/card pairing similar to profile sections */
+.section-header-item {
+  --background: #f5f5f7;
+  --color: #202124;
+  --inner-padding-end: 12px;
+  border-radius: 16px;
+  min-height: 56px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.04);
+}
+
+/* Rounded pill-style ion-item (works with ion-input / ion-select inside) */
+.pill-item {
+  --background: #ffffff;
+  --border-radius: 30px;
+  --inner-border-radius: 30px;
+  --padding-start: 18px;
+  --padding-end: 14px;
+  margin: 12px 0;
+  --border-color: rgba(0,0,0,0.16);
+  --border-style: solid;
+  --border-width: 2px;
+  --inner-border-width: 0;
+  --inner-padding-bottom: 0;
+  --inner-padding-top: 0;
+  border: none;
+  min-height: 56px;
+  --color: #1a1a1a;
+  --placeholder-color: #8f8f8f;
+  --placeholder-opacity: 1;
+  --highlight-color-focused: #ff3b6b;
+}
+
+.pill-item::part(container) {
+  border-radius: 30px;
+  background: #ffffff;
+  border: none;
+}
+
+.pill-item::part(native) {
+  border-radius: 30px;
+}
+
+/* Ensure inputs/selects inside pill-item use dark text on light bg */
+.pill-item ion-input,
+.pill-item ion-select {
+  --color: #1a1a1a !important;
+  --placeholder-color: #8f8f8f !important;
+  --placeholder-opacity: 1 !important;
+}
+
+.pill-item ion-input::part(native) {
+  color: #1a1a1a !important;
+}
+
+/* Brand primary pill button – matches Submit button style */
+.btn-pill-primary {
+  --background: linear-gradient(180deg,#ff3b6b 0%, #ff215b 100%);
+  --border-radius: 32px;
+  min-height: 58px;
+  box-shadow: 0 16px 32px rgba(255,33,91,.30);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  --color: #ffffff;
+}

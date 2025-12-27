@@ -24,6 +24,46 @@ export const routes: Routes = [
           import('../tab3/tab3.page').then((m) => m.Tab3Page),
       },
       {
+        path: 'profile',
+        loadComponent: () =>
+          import('../profile/profile.page').then((m) => m.ProfilePage),
+      },
+      {
+        path: 'profile/basic-info',
+        loadComponent: () =>
+          import('../profile/basic-info.page').then((m) => m.BasicInfoPage),
+      },
+      {
+        path: 'profile/about',
+        loadComponent: () =>
+          import('../profile/about.page').then((m) => m.AboutPage),
+      },
+      {
+        path: 'profile/religious',
+        loadComponent: () =>
+          import('../profile/religious.page').then((m) => m.ReligiousPage),
+      },
+      {
+        path: 'profile/education',
+        loadComponent: () =>
+          import('../profile/education.page').then((m) => m.EducationPage),
+      },
+      {
+        path: 'profile/family',
+        loadComponent: () =>
+          import('../profile/family.page').then((m) => m.FamilyPage),
+      },
+      {
+        path: 'profile/location',
+        loadComponent: () =>
+          import('../profile/location.page').then((m) => m.LocationPage),
+      },
+      {
+        path: 'profile/partner-preferences',
+        loadComponent: () =>
+          import('../profile/partner-preferences.page').then((m) => m.PartnerPreferencesPage),
+      },
+      {
         path: '',
         redirectTo: 'tab1',
         pathMatch: 'full',

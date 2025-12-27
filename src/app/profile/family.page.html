@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Family Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <ion-item>
+      <ion-input label="Father Occupation" labelPlacement="floating" [(ngModel)]="fatherOccupation"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Mother Occupation" labelPlacement="floating" [(ngModel)]="motherOccupation"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="submit">
+    <ion-button expand="block" (click)="submit()">Submit</ion-button>
+  </div>
+</ion-content>

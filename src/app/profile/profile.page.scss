@@ -1,0 +1,152 @@
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nameBlock h3 { margin: 0; }
+.nameBlock small { color: var(--ion-color-medium); }
+.actions { display: flex; gap: 12px; margin-top: 8px; }
+.section-card { margin: 8px 0; background: var(--app-card); color: var(--ion-text-color); border-radius: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+.tabsHeader {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 16px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.tabsHeader .mini-tab {
+  border: 0;
+  background: transparent;
+  padding: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+}
+.tabsHeader .mini-tab.active {
+  position: relative;
+  color: #000000;
+  font-weight: 800;
+}
+.tabsHeader .mini-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  background: #ff215b;
+  border-radius: 3px;
+}
+
+/* Section headers styling to ensure visibility on dark theme */
+ion-item.section-header {
+  --background: #f5f5f7;
+  --color: #202124;
+  --inner-padding-end: 12px;
+  border-radius: 16px;
+  margin: 8px 0;
+  min-height: 56px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.04);
+}
+ion-item.section-header ion-icon { color: #202124; }
+ion-item.section-header ion-label strong { color: #202124; font-weight: 700; }
+
+.prefs-header {
+  --background: #f1f1f4;
+}
+
+.accent-line {
+  margin: 6px 16px;
+  background: #ff215b;
+  margin: 8px 16px 12px;
+  border-radius: 3px;
+  max-width: 960px;
+}
+
+.profile-header {
+  --background: transparent;
+}
+
+.profile-card {
+  margin: 12px 16px;
+  padding: 12px;
+  border-radius: 16px;
+  background: linear-gradient(180deg,#ff3b6b 0%, #ff215b 100%);
+  color: #fff;
+  max-width: 960px;
+}
+.avatar-wrap { position: relative; width: 96px; height: 96px; }
+.avatar-wrap ion-avatar { width: 96px; height: 96px; border-radius: 14px !important; border: 3.5px solid rgba(255,255,255,.75); overflow: hidden; }
+.avatar-wrap .cam-btn { position: absolute; right: -10px; bottom: -10px; --background: #ffffff; --color: #ff215b; border-radius: 50%; box-shadow: 0 6px 14px rgba(0,0,0,.12); width: 36px; height: 36px; }
+.profile-card .name { font-weight: 800; font-size: 20px; }
+.profile-card .code { opacity: 0.9; font-size: 13px; letter-spacing: .2px; }
+.profile-card ion-avatar { border: 3.5px solid rgba(255,255,255,.75); border-radius: 14px; overflow: hidden; }
+.progress-card {
+  margin: 12px 16px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  max-width: 960px;
+}
+
+/* On wider screens, center hero/progress within viewport but keep side breathing room on mobile */
+@media (min-width: 960px) {
+  .profile-card,
+  .progress-card,
+  .accent-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.progress-card .progress { height: 8px; --background: rgba(0,0,0,0.12); --progress-background: #ff215b; border-radius: 10px; }
+
+/* Pill buttons to match yellow design */
+.pill-btn { --background: linear-gradient(180deg,#ffa600 0%, #ff9300 100%); --border-radius: 22px; --box-shadow: 0 10px 20px rgba(255,166,0,0.35); font-weight: 700; }
+.pill-outline { --border-color: #ff9300; --color: #ff9300; --border-radius: 22px; }
+
+/* Decorative subtle background pattern for content */
+/* Background pattern using SVG asset with CSS gradient fallback */
+ion-content {
+  --background: #ffffff;
+  background:
+    url('/assets/patterns/matrimoni-bg.svg') 0 0 / 160px 160px repeat,
+    radial-gradient(circle at 95% 56%, rgba(255,33,91,.18) 0 24px, transparent 26px),
+    radial-gradient(circle at 9% 88%, rgba(255,33,91,.18) 0 18px, transparent 20px),
+    #ffffff;
+}
+
+/* Center content columns on wide screens */
+.profile-wrapper,
+.preferences-wrapper {
+  max-width: 960px;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+}
+
+/* My Preferences tab layout */
+.preferences-wrapper {
+  max-width: 960px;        /* keep content in a readable column on desktop */
+  margin: 0 auto 24px;    /* center in browser */
+  padding: 0 16px 24px;   /* side padding like other cards */
+}
+
+.prefs-card {
+  margin-top: 8px;
+}
+
+.prefs-grid {
+  font-size: 14px;
+  row-gap: 6px;
+}
+
+.prefs-grid .label {
+  font-weight: 700;
+  color: #202124;
+}
+
+.prefs-grid .value {
+  text-align: right;
+  color: #555b66;
+}

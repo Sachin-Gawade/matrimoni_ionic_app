@@ -1,2 +1,43 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
+// App Theme Variables (Light design per product specs)
+// https://ionicframework.com/docs/theming/variables
+
+:root {
+	/* Brand colors */
+	--ion-color-primary: #ff3b6b;
+	--ion-color-primary-rgb: 255, 59, 107;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255, 255, 255;
+	--ion-color-primary-shade: #e43560;
+	--ion-color-primary-tint: #ff557f;
+
+	--ion-color-secondary: #ffb400;
+	--ion-color-secondary-rgb: 255, 180, 0;
+	--ion-color-secondary-contrast: #1a1a1a;
+	--ion-color-secondary-contrast-rgb: 26, 26, 26;
+	--ion-color-secondary-shade: #e0a100;
+	--ion-color-secondary-tint: #ffc533;
+
+	--ion-color-tertiary: #ff215b;
+	--ion-color-tertiary-rgb: 255, 33, 91;
+	--ion-color-tertiary-contrast: #ffffff;
+	--ion-color-tertiary-contrast-rgb: 255, 255, 255;
+	--ion-color-tertiary-shade: #e01d50;
+	--ion-color-tertiary-tint: #ff4174;
+
+	/* Surfaces & text */
+	--ion-background-color: #ffffff;
+	--ion-background-color-rgb: 255, 255, 255;
+	--ion-text-color: #1a1a1a;
+	--ion-text-color-rgb: 26, 26, 26;
+
+	/* Cards & items */
+	--app-surface: #f3f3f3; /* section headers */
+	--app-card: #ffffff;    /* detail cards */
+	--app-muted: #6b6b6b;   /* secondary text */
+	--app-divider: rgba(0,0,0,0.08);
+}
+
+/* Material Design mode tweaks */
+ion-item {
+	--background: var(--app-card);
+}

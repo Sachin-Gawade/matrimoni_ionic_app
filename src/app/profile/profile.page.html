@@ -1,0 +1,246 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>View Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button><ion-icon name="search-outline"></ion-icon></ion-button>
+      <ion-button><ion-icon name="notifications-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <div class="avatar-wrap">
+            <ion-avatar>
+              <img src="assets/icon/icon.png" />
+            </ion-avatar>
+            <ion-button class="cam-btn" size="small">
+              <ion-icon name="camera-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-col>
+        <ion-col size="9">
+          <div class="name">Sachin Gawade</div>
+          <div class="code">SAPTA5978808</div>
+          <div class="actions">
+            <ion-button size="small" class="pill-btn">View Gallery</ion-button>
+            <ion-button size="small" class="pill-outline" fill="outline">Manage Gallery</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="progress-card">
+    <div>100% Completed Profile</div>
+    <ion-progress-bar class="progress" color="primary" value="1"></ion-progress-bar>
+  </div>
+
+  <div class="accent-line"></div>
+  <div class="tabsHeader">
+    <button type="button" class="mini-tab" [class.active]="activeTab === 'profile'" (click)="switchTab('profile')">
+      My Profile
+    </button>
+    <button type="button" class="mini-tab" [class.active]="activeTab === 'preferences'" (click)="switchTab('preferences')">
+      My Preferences
+    </button>
+  </div>
+
+  <!-- My Profile content -->
+  <div *ngIf="activeTab === 'profile'" class="profile-wrapper">
+    <ion-list>
+    <!-- Basic Detail section header -->
+    <ion-item class="section-header" lines="none" button detail="false" (click)="toggle('basic')">
+      <ion-label><strong>Basic Detail</strong></ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="goBasicInfo(); $event.stopPropagation()" aria-label="Edit"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="$event.stopPropagation()" aria-label="Collapse">
+          <ion-icon [name]="sections.basic ? 'remove-outline' : 'add-outline'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-card class="section-card" *ngIf="sections.basic">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">First Name</ion-col><ion-col size="6">Sachin</ion-col>
+            <ion-col size="6">Father Name</ion-col><ion-col size="6">Rangnath</ion-col>
+            <ion-col size="6">Last Name</ion-col><ion-col size="6">Gawade</ion-col>
+            <ion-col size="6">Gender</ion-col><ion-col size="6">Male</ion-col>
+            <ion-col size="6">Birth Time</ion-col><ion-col size="6">10:25 PM</ion-col>
+            <ion-col size="6">Blood Group</ion-col><ion-col size="6">B+</ion-col>
+            <ion-col size="6">Zodiac</ion-col><ion-col size="6">Virgo</ion-col>
+            <ion-col size="6">Mobile</ion-col><ion-col size="6">7020498612</ion-col>
+            <ion-col size="6">Email</ion-col><ion-col size="6">sachinrg3234@gmail.com</ion-col>
+            <ion-col size="6">Whatsapp</ion-col><ion-col size="6">7020498612</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- About Us section header -->
+    <ion-item class="section-header" lines="none" button detail="false" (click)="toggle('about')">
+      <ion-label><strong>About Us</strong></ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="goAbout(); $event.stopPropagation()" aria-label="Edit"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="$event.stopPropagation()" aria-label="Collapse">
+          <ion-icon [name]="sections.about ? 'remove-outline' : 'add-outline'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-card class="section-card" *ngIf="sections.about">
+      <ion-card-content>
+        <p>
+          Hi, thanks for visiting my profile. I am all about enjoying the small things in life and
+          grabbing every opportunity that comes my way.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Religious Info section header -->
+    <ion-item class="section-header" lines="none" button detail="false" (click)="toggle('religious')">
+      <ion-label><strong>Religious Information</strong></ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="goReligious(); $event.stopPropagation()" aria-label="Edit"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="$event.stopPropagation()" aria-label="Collapse">
+          <ion-icon [name]="sections.religious ? 'remove-outline' : 'add-outline'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-card class="section-card" *ngIf="sections.religious">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">Religion</ion-col><ion-col size="6">Hindu</ion-col>
+            <ion-col size="6">Caste</ion-col><ion-col size="6">Dhangar</ion-col>
+            <ion-col size="6">Sub Caste</ion-col><ion-col size="6">Shegar</ion-col>
+            <ion-col size="6">Manglik</ion-col><ion-col size="6">Not Accepted</ion-col>
+            <ion-col size="6">Mother Tongue</ion-col><ion-col size="6">Marathi</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Education Info -->
+    <ion-item class="section-header" lines="none" button detail="false" (click)="toggle('education')">
+      <ion-label><strong>Education Information</strong></ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="goEducation(); $event.stopPropagation()" aria-label="Edit"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="$event.stopPropagation()" aria-label="Collapse">
+          <ion-icon [name]="sections.education ? 'remove-outline' : 'add-outline'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-card class="section-card" *ngIf="sections.education">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">Highest Education</ion-col><ion-col size="6">B.Tech</ion-col>
+            <ion-col size="6">Occupation</ion-col><ion-col size="6">Engineer</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Family Info -->
+    <ion-item class="section-header" lines="none" button detail="false" (click)="toggle('family')">
+      <ion-label><strong>Family Information</strong></ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="goFamily(); $event.stopPropagation()" aria-label="Edit"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="$event.stopPropagation()" aria-label="Collapse">
+          <ion-icon [name]="sections.family ? 'remove-outline' : 'add-outline'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-card class="section-card" *ngIf="sections.family">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">Father</ion-col><ion-col size="6">Business</ion-col>
+            <ion-col size="6">Mother</ion-col><ion-col size="6">Homemaker</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Location Info -->
+    <ion-item class="section-header" lines="none" button detail="false" (click)="toggle('location')">
+      <ion-label><strong>Location Information</strong></ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="goLocation(); $event.stopPropagation()" aria-label="Edit"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="$event.stopPropagation()" aria-label="Collapse">
+          <ion-icon [name]="sections.location ? 'remove-outline' : 'add-outline'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-card class="section-card" *ngIf="sections.location">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">City</ion-col><ion-col size="6">Pune</ion-col>
+            <ion-col size="6">State</ion-col><ion-col size="6">Maharashtra</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Additional sections can be added similarly: Education, Family, Location -->
+    </ion-list>
+  </div>
+
+  <!-- My Preferences content -->
+  <div *ngIf="activeTab === 'preferences'" class="preferences-wrapper">
+    <ion-item class="section-header prefs-header" lines="none" button detail="false" (click)="showPartnerPreferences = !showPartnerPreferences">
+      <ion-label><strong>Partner Preferences</strong></ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="goPartnerPreferences(); $event.stopPropagation()" aria-label="Edit Preferences">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="$event.stopPropagation()" aria-label="Collapse">
+          <ion-icon [name]="showPartnerPreferences ? 'remove-outline' : 'add-outline'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <ion-card class="section-card prefs-card" *ngIf="showPartnerPreferences">
+      <ion-card-content>
+        <ion-grid class="prefs-grid">
+          <ion-row>
+            <ion-col size="6" class="label">Age From</ion-col>
+            <ion-col size="6" class="value">23</ion-col>
+
+            <ion-col size="6" class="label">Age To</ion-col>
+            <ion-col size="6" class="value">32</ion-col>
+
+            <ion-col size="6" class="label">Marital Status</ion-col>
+            <ion-col size="6" class="value">Unmarried</ion-col>
+
+            <ion-col size="6" class="label">Religion</ion-col>
+            <ion-col size="6" class="value">Hindu</ion-col>
+
+            <ion-col size="6" class="label">Caste</ion-col>
+            <ion-col size="6" class="value">Dhangar</ion-col>
+
+            <ion-col size="6" class="label">Country</ion-col>
+            <ion-col size="6" class="value">India</ion-col>
+
+            <ion-col size="6" class="label">State</ion-col>
+            <ion-col size="6" class="value">Maharashtra</ion-col>
+
+            <ion-col size="6" class="label">District</ion-col>
+            <ion-col size="6" class="value">Pune</ion-col>
+
+            <ion-col size="6" class="label">Education</ion-col>
+            <ion-col size="6" class="value">Diploma, Graduate, Masters</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
